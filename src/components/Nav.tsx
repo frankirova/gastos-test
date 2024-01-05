@@ -9,7 +9,7 @@ const Nav: React.FC = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
-        <Box backgroundColor={'#353634'}>
+        <Box backgroundColor={'#353634'} width='100vw'>
             <Button onClick={onOpen}
                 leftIcon={<MenuBurgerIcon />}
                 bg="#4d648d"
@@ -30,9 +30,11 @@ const Nav: React.FC = () => {
                 display={isOpen ? 'block' : 'none'}
             >
                 <VStack spacing="4" align="stretch">
-                    <Text fontSize="xl">Opción 1</Text>
-                    <Text fontSize="xl">Opción 2</Text>
-                    <Text fontSize="xl">Opción 3</Text>
+                    <Text fontSize="xl">Dashboard</Text>
+                    <Text fontSize="xl">Cuentas</Text>
+                    <Text fontSize="xl">Categorias</Text>
+                    <Text fontSize="xl">Movimientos</Text>
+
                 </VStack>
                 <Button onClick={onClose} mt="4">
                     <XIcon/>

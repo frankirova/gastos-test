@@ -19,7 +19,7 @@ export const AccountList = () => {
     setInterval(() => updateTotalAccount(accounts), 86400000);
 
     return (
-        <VStack padding={'4rem'} spacing={6}>
+        <VStack spacing={6}>
             <Tag colorScheme="blue" fontSize={'xx-large'}>
                 Total: {saldo_total_format}
             </Tag>
