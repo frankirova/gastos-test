@@ -22,6 +22,7 @@ const Nav: React.FC = () => {
                 top="0"
                 left="0"
                 h="100vh"
+                w='50vw'
                 p="4"
                 bg="#4d648d"
                 color="white"
