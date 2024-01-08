@@ -9,18 +9,18 @@ import { Link } from "react-router-dom"
 
 export const AccountList = () => {
     const { getAccount, accounts }: any = useAccount()
-    const [saldo, setSaldo] = useState('')
     const saldo_total = Math.round(getSaldoDashboard(accounts))
     const saldo_total_format = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(saldo_total);
-
-    useEffect(() => { setSaldo(saldo_total_format) }, [])
+    const [saldo, setSaldo] = useState(saldo_total_format)
 
     useEffect(() => {
         getAccount()
     }, [])
 
     setInterval(() => updateTotalAccount(accounts), 86400000);
-
+    const ver_saldo = () => {
+        setSaldo(saldo_total_format)
+    }
     const ocultar_saldo = () => {
         setSaldo('*****')
     }
@@ -29,7 +29,7 @@ export const AccountList = () => {
             <Tag colorScheme="blue" fontSize={'xx-large'}>
                 Total: {saldo}
             </Tag>
-            <Button onClick={ocultar_saldo}>Ocultar saldo</Button>
+            {saldo == '*****' ? <Button onClick={ver_saldo}>Ver saldo</Button> : <Button onClick={ocultar_saldo}>Ocultar saldo</Button>}
             {
                 accounts.map((account: Accounts) => (
                     <Flex key={account._id}
