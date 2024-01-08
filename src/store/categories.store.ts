@@ -5,7 +5,7 @@ export const useCategories = create((set) => ({
     categories: [],
     getCategories: async () => {
         const response = await fetch(
-            "https://gastito-test.onrender.com/myCategories"
+            "https://gastito-test.onrender.com/categories"
         );
         const categories = await response.json();
         set((state:any) => ({
@@ -14,7 +14,7 @@ export const useCategories = create((set) => ({
         }));
     },
     addCategory: async (category:Category) => {
-        await fetch("https://gastito-test.onrender.com/addCategories", {
+        await fetch("https://gastito-test.onrender.com/category", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
