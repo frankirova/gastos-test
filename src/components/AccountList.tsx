@@ -1,7 +1,7 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useAccount } from "../store/account.store"
 import { Accounts } from "../store/types/account.type"
-import { Flex, Image, Tag, Text, VStack } from "@chakra-ui/react"
+import { Button, Flex, Image, Tag, Text, VStack } from "@chakra-ui/react"
 import { ButtonAdd } from "./ButtonAdd"
 import { updateTotalAccount } from "../helpers/updateTotalAccount"
 import { getSaldoDashboard } from "../helpers/getSaldoDashboard"
@@ -9,8 +9,11 @@ import { Link } from "react-router-dom"
 
 export const AccountList = () => {
     const { getAccount, accounts }: any = useAccount()
+    const [saldo, setSaldo] = useState('')
     const saldo_total = Math.round(getSaldoDashboard(accounts))
     const saldo_total_format = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(saldo_total);
+
+    useEffect(() => { setSaldo(saldo_total_format) }, [])
 
     useEffect(() => {
         getAccount()
@@ -18,11 +21,15 @@ export const AccountList = () => {
 
     setInterval(() => updateTotalAccount(accounts), 86400000);
 
+    const ocultar_saldo = () => {
+        setSaldo('*****')
+    }
     return (
         <VStack spacing={6}>
             <Tag colorScheme="blue" fontSize={'xx-large'}>
-                Total: {saldo_total_format}
+                Total: {saldo}
             </Tag>
+            <Button onClick={ocultar_saldo}>Ocultar saldo</Button>
             {
                 accounts.map((account: Accounts) => (
                     <Flex key={account._id}
