@@ -1,10 +1,9 @@
-import { VStack } from '@chakra-ui/react'
-import { AccountList } from './components/AccountList'
+import { Heading, VStack } from '@chakra-ui/react'
 
 export const App = () => {
   return (
     <VStack backgroundColor={'#353634'} minHeight={'100vh'} minWidth='100vw' justifyContent={'center'} alignItems={'center'}>
-      <AccountList />
+      <Heading>Hola</Heading>
     </VStack>
   )
 }

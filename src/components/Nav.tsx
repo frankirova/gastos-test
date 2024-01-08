@@ -1,8 +1,9 @@
 // HamburguesaMenu.tsx
 import React from 'react';
-import { Button, useDisclosure, Box, VStack, Text } from '@chakra-ui/react';
+import { Button, useDisclosure, Box, VStack, Text, Heading } from '@chakra-ui/react';
 import { MenuBurgerIcon } from '../icons/MenuBurgerIcon';
 import { XIcon } from '../icons/XIcon';
+import { Link } from 'react-router-dom';
 // import { HamburgerIcon } from '@chakra-ui/icons';
 
 const Nav: React.FC = () => {
@@ -15,7 +16,7 @@ const Nav: React.FC = () => {
                 bg="#4d648d"
                 color={'white'}
             />
-
+            <Heading color={'white'} as={Link} to={'/'}>Gastito</Heading>
             {/* Menú lateral */}
             <Box
                 pos="fixed"
@@ -29,15 +30,15 @@ const Nav: React.FC = () => {
                 zIndex="overlay"
                 display={isOpen ? 'block' : 'none'}
             >
-                <VStack spacing="4" align="stretch">
-                    <Text fontSize="xl">Dashboard</Text>
-                    <Text fontSize="xl">Cuentas</Text>
-                    <Text fontSize="xl">Categorias</Text>
-                    <Text fontSize="xl">Movimientos</Text>
+                <VStack spacing="4" align="stretch" fontSize={'x-large'}>
+                    <Text as={Link} to={'/dashboard'} onClick={onClose}>Dashboard</Text>
+                    <Text as={Link} to={'/accounts'} onClick={onClose}>Cuentas</Text>
+                    <Text as={Link} to={'/categories'} onClick={onClose}>Categorias</Text>
+                    <Text as={Link} to={'/movements'} onClick={onClose}>Movimientos</Text>
 
                 </VStack>
                 <Button onClick={onClose} mt="4">
-                    <XIcon/>
+                    <XIcon />
                 </Button>
             </Box>
         </Box>

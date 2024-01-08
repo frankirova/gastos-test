@@ -23,6 +23,15 @@ export const useForm = ({ initialValue = {} }: any) => {
         });
     };
 
+    const handleChangeSelect = ({
+        target: { name, value },
+    }: ChangeEvent<HTMLSelectElement>) => {
+        setFormState({
+            ...formState,
+            [name]: value,
+        });
+    };
+
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         alert("enviando formulario");
@@ -42,5 +51,6 @@ export const useForm = ({ initialValue = {} }: any) => {
         handleSubmit,
         handleReset,
         updateFormState,
+        handleChangeSelect
     };
 };
