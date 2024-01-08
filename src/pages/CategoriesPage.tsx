@@ -3,7 +3,7 @@
 import { useCategories } from "../store/categories.store";
 import { useEffect } from "react";
 
-import { Container, Flex, Heading, Spinner } from "@chakra-ui/react";
+import { Flex, Heading, Spinner } from "@chakra-ui/react";
 import { CategorieTable } from "../components/CategoriesTable";
 import { ModalAddCategory } from "../components/ModalAddCategorie";
 
