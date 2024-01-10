@@ -1,8 +1,9 @@
 
-import { Button, Menu, MenuButton, MenuList } from "@chakra-ui/react";
+import { Button, Menu, MenuButton, MenuList, VStack } from "@chakra-ui/react";
 // import "../styles/__ButtonWhatsapp.css";
 import { ModalAddAccount } from "./ModalAddAccount";
 import { PlusIcon } from "../icons/PlusIcon";
+import { ModalAddMovement } from "./ModalAddMovement";
 
 export const ButtonAdd = () => {
     return (
@@ -25,7 +26,10 @@ export const ButtonAdd = () => {
 
             </MenuButton>
             <MenuList bg="white" color="black">
-                <ModalAddAccount />
+                <VStack>
+                    <ModalAddAccount />
+                    <ModalAddMovement />
+                </VStack>
             </MenuList>
         </Menu>
     );
