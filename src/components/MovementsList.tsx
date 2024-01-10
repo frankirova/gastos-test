@@ -35,9 +35,9 @@ export const MovementsList = () => {
                             justifyContent={'space-evenly'}
                             alignItems={'center'}
                         >
-                            <Image minW={'5rem'} src="https://placehold.co/24x24" borderRadius={'100%'} />
-                            <Text maxW={'5rem'}>{movement.category}</Text>
-                            <Tag minW={'5rem'}>{new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(movement.amount)}</Tag>
+                            <Image src="https://placehold.co/48x48" borderRadius={'100%'} />
+                            <Text maxWidth={'7rem'}>{movement.category}</Text>
+                            <Tag minW={'2rem'}>{new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(movement.amount)}</Tag>
                         </HStack>
                     ))
                 }
