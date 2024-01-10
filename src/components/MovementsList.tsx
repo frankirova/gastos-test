@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Box, Button, Center, HStack, Image, Tag, Text, VStack } from "@chakra-ui/react"
+import { Button, HStack, Image, Tag, Text, VStack } from "@chakra-ui/react"
 import { ButtonAdd } from "./ButtonAdd"
 
 import { Link } from "react-router-dom"
