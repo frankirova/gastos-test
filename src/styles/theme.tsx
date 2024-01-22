@@ -5,6 +5,7 @@ export const MyNewTheme = extendTheme({
         primary: "#353634",
         // secondary: "#ecf2f6",
         secondary: "#4d648d",
+        terceary: '#2b2b2b'
     },
     fonts: {
         body: "roboto",

@@ -16,7 +16,7 @@ export const useMovements = create((set) => ({
     addMovement: async (movement: Movement, id_account: number) => {
         try {
             const response = await fetch(
-                "https://gastito-test.onrender.com/addMovement",
+                "https://gastito-test.onrender.com/movements",
                 {
                     method: "POST",
                     headers: {
@@ -25,13 +25,17 @@ export const useMovements = create((set) => ({
                     body: JSON.stringify({ ...movement, id_account }),
                 }
             );
+            const totals_response = await fetch(
+                `https://gastito-test.onrender.com/totals/${id_account}`
+            );
+            const totals = await totals_response.json();
 
             if (response.ok) {
                 const addedMovement = await response.json();
                 set((state: any) => ({
                     ...state,
                     movements: [...state.movements, addedMovement],
-                    //totals: totals,
+                    totals: totals,
                 }));
             } else {
                 console.error("Error al agregar el movimiento");
