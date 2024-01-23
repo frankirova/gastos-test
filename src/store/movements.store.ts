@@ -26,15 +26,15 @@ export const useMovements = create((set) => ({
                 }
             );
             const totals_response = await fetch(
-                `https://gastito-test.onrender.com/totals/${id_account}`
+                `https://gastito-test.onrender.com/totals`
             );
             const totals = await totals_response.json();
-
+            console.log(response);
             if (response.ok) {
                 const addedMovement = await response.json();
                 set((state: any) => ({
                     ...state,
-                    movements: [...state.movements, addedMovement],
+                    movements: { ...state.movements, addedMovement },
                     totals: totals,
                 }));
             } else {
