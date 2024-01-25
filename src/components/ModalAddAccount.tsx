@@ -90,7 +90,7 @@ export const ModalAddAccount = () => {
                                 name="cards"
                                 onChange={handleChange}
                                 // onClose={onClose}
-                                placeholder="nombre de la cuenta"
+                                placeholder="cards"
                                 ref={initialRef}
                             />
                         </FormControl>
@@ -99,7 +99,7 @@ export const ModalAddAccount = () => {
                             name="currency"
                             onChange={handleChange}
                             // onClose={onClose}
-                            placeholder="nombre de la cuenta"
+                            placeholder="currency"
                             ref={initialRef}
                         />
                         {/* <Select

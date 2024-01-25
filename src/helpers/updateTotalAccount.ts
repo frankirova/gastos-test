@@ -1,9 +1,13 @@
 import { convertToARS } from "./convertToArs";
-import { useAccount } from "../store/account.store";
-export const updateTotalAccount = async (accounts: any) => {
-    const { updateAccount }: any = useAccount();
-    for (const account of accounts) {
-        const total = await convertToARS(account.currency, account.balance);
-        await updateAccount(total, account.id);
+
+export const updateTotalAccount = async (updateAccount:any, accounts:any) => {
+    try {
+        for (const account of accounts) {
+            const total = await convertToARS(account.currency, account.balance);
+            // console.log(account.id)
+            await updateAccount(total, account._id);
+        }
+    } catch (error) {
+        console.error("Error en updateTotalAccount: ", error);
     }
 };

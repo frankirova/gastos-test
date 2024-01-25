@@ -1,4 +1,4 @@
-import { Button, Tag, VStack } from "@chakra-ui/react";
+import { Button, Tag, Text, VStack } from "@chakra-ui/react";
 import { useTotals } from "../store/totals.store";
 import { useEffect, useState } from "react";
 
@@ -22,14 +22,15 @@ export const TotalComponent = () => {
         setSaldo(totals)
     }
     const ocultar_saldo = () => {
-        setSaldo('*****')
+        setSaldo('**********')
     }
     return (
         <VStack backgroundColor={'terceary'} padding={12}>
-            <Tag colorScheme="blue" fontSize={'xx-large'}>
-                Total: {saldo}
+            <Tag colorScheme="blue" fontSize={'xx-large'} p={4}>
+                <Text>Total:</Text>
+                <Text>{saldo}</Text>
             </Tag>
-            {saldo == '*****' ? <Button onClick={ver_saldo}>Ver saldo</Button> : <Button onClick={ocultar_saldo}>Ocultar saldo</Button>}
+            {saldo == '**********' ? <Button onClick={ver_saldo}>Ver saldo</Button> : <Button onClick={ocultar_saldo}>Ocultar saldo</Button>}
         </VStack>
     )
 }

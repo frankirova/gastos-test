@@ -43,7 +43,7 @@ export const AccountUpdateForm = ({ id }: any) => {
                 <Input
                     name="balance"
                     onChange={handleChange}
-                    placeholder="Seleciona un grupo"
+                    placeholder="balance"
                 />
                 <FormLabel>Tarjetas</FormLabel>
                 <Input
@@ -53,9 +53,9 @@ export const AccountUpdateForm = ({ id }: any) => {
                 />
                 <FormLabel>Tarjetas</FormLabel>
                 <Input
-                    name="type"
+                    name="currency"
                     onChange={handleChange}
-                    placeholder="Selecciona un tipo"
+                    placeholder="currency"
                 />
             </FormControl >
             <VStack>

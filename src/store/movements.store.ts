@@ -29,12 +29,12 @@ export const useMovements = create((set) => ({
                 `https://gastito-test.onrender.com/totals`
             );
             const totals = await totals_response.json();
-            console.log(response);
+    
             if (response.ok) {
                 const addedMovement = await response.json();
                 set((state: any) => ({
                     ...state,
-                    movements: { ...state.movements, addedMovement },
+                    movements: [...state.movements, addedMovement],
                     totals: totals,
                 }));
             } else {
@@ -43,7 +43,7 @@ export const useMovements = create((set) => ({
         } catch (error) {
             console.error("Error en la solicitud: ", error);
         }
-    },
+    },    
     updateMovement: async (updated_movement: Movement, id_account: number) => {
         try {
             const response = await fetch(

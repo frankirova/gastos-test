@@ -8,13 +8,17 @@ import { Movement } from "../store/types/movements.type"
 import { TotalComponent } from "./TotalComponent"
 
 export const MovementsList = () => {
-    const [selectGroup, setSelectGroup] = useState('')
+    const [selectGroup, setSelectGroup] = useState('expense')
     const { getMovements, movements }: any = useMovements()
-    const filtered_movements = movements.filter((movement: any) => movement.group === selectGroup)
-
+    // const filtered_movements = movements.filter((movement: any) => movement.group === selectGroup)
+    const [filteredMovements, setFilteredMovements] = useState([])
     useEffect(() => {
         getMovements()
-    }, [])
+        setFilteredMovements(movements.filter((movement: any) => movement.group === selectGroup))
+    }, [selectGroup])
+    console.log(movements)
+    console.log(filteredMovements)
+    console.log(selectGroup)
 
     return (
         <VStack padding={6} spacing={4}>
@@ -25,7 +29,7 @@ export const MovementsList = () => {
             </HStack>
             <VStack spacing={6}>
                 {
-                    filtered_movements.map((movement: Movement) => (
+                    filteredMovements.map((movement: Movement) => (
                         <HStack key={movement._id}
                             as={Link}
                             to={`/${movement._id}`}

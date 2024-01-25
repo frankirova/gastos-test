@@ -30,6 +30,8 @@ export const useAccount = create((set) => ({
             },
             body: JSON.stringify(updatedAccount),
         });
+        console.log(id)
+        console.log(updatedAccount)
     },
     deleteAccount: async () => {},
     getByIdAccount: async () => {},

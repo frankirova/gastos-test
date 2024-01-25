@@ -20,6 +20,7 @@ import { useMovements } from "../store/movements.store";
 import { useCategories } from "../store/categories.store";
 import { useAccount } from "../store/account.store";
 import { Accounts } from "../store/types/account.type";
+import { updateTotalAccount } from "../helpers/updateTotalAccount";
 
 export const ModalAddMovement = () => {
     // const [cryptos, setCryptos] = useState([]);
@@ -28,7 +29,7 @@ export const ModalAddMovement = () => {
     const { categories, getCategories }: any = useCategories();
     const { addMovement }: any = useMovements();
     const { getMovements }: any = useMovements();
-    const { getAccount, accounts }: any = useAccount();
+    const { getAccount, accounts, updateAccount }: any = useAccount();
 
     const categoriesExpense = categories.filter(
         (category: any) => category.group === "expense"
@@ -88,7 +89,7 @@ export const ModalAddMovement = () => {
 
     const handleActionAndCloseModal = (category: any) => {
         addMovement(category);
-        console.log(category)
+        updateTotalAccount(updateAccount, accounts)
         onClose();
     };
     // if (!fieldsMovements[0]) return <p>Loading</p>;
