@@ -18,7 +18,7 @@ export const AccountList = () => {
     useEffect(() => {
         getAccount()
     }, [])
-
+console.log('hola')
     useEffect(() => {
         getTotals()
     }, [])
