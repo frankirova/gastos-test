@@ -25,7 +25,7 @@ export const TotalComponent = () => {
         setSaldo('**********')
     }
     return (
-        <VStack backgroundColor={'terceary'} padding={12}>
+        <VStack width='90vw' backgroundColor={'terceary'} padding={12}>
             <Tag colorScheme="blue" fontSize={'xx-large'} p={4}>
                 <Text>Total:</Text>
                 <Text>{saldo}</Text>

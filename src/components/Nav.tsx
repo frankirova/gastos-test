@@ -1,6 +1,6 @@
 // HamburguesaMenu.tsx
 import React from 'react';
-import { Button, useDisclosure, Box, VStack, Text, Heading } from '@chakra-ui/react';
+import { Button, useDisclosure, Box, VStack, Text, Heading, HStack, Flex } from '@chakra-ui/react';
 import { MenuBurgerIcon } from '../icons/MenuBurgerIcon';
 import { XIcon } from '../icons/XIcon';
 import { Link } from 'react-router-dom';
@@ -10,22 +10,24 @@ const Nav: React.FC = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
-        <Box backgroundColor={'#353634'} width='100vw'>
+        <HStack backgroundColor={'#353634'} width='100vw'>
             <Button onClick={onOpen}
                 leftIcon={<MenuBurgerIcon />}
                 bg="#4d648d"
                 color={'white'}
             />
-            <Heading color={'white'} as={Link} to={'/'}>Gastito</Heading>
+            <Flex width='70vw' justifyContent='center'>
+                <Heading color={'white'} as={Link} to={'/'}>Gastito</Heading>
+            </Flex>
             {/* Menú lateral */}
             <Box
                 pos="fixed"
                 top="0"
                 left="0"
-                h="100vh"
-                w='50vw'
-                p="4"
-                bg="#4d648d"
+                height="100vh"
+                width='50vw'
+                padding="4"
+                background="#4d648d"
                 color="white"
                 zIndex="overlay"
                 display={isOpen ? 'block' : 'none'}
@@ -41,7 +43,7 @@ const Nav: React.FC = () => {
                     <XIcon />
                 </Button>
             </Box>
-        </Box>
+        </HStack>
     );
 };
 
