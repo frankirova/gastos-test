@@ -27,7 +27,7 @@ const Nav: React.FC = () => {
                 color={'white'}
                 background={'primary'}
             />
-            <VStack width='70vw' justifyContent='center'>
+            <VStack width='70vw' justifyContent='center' height='10vh' borderBottomRadius="100%">
                 <Text color={'white'}>{totals}</Text>
                 {/*<Heading color={'white'} as={Link} to={'/'}>Gastito</Heading>*/}
                 <Menu>
