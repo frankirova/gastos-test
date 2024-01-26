@@ -24,7 +24,7 @@ export const CategoriesPage = () => {
     }
 
     return (
-        <Flex direction="column" gap={8} padding={4} alignItems={'center'} minH={'100vh'} width="100vw" bg={'primary'}>
+        <Flex direction="column" gap={8} padding={4} alignItems={'center'} minH={'100vh'} width="100vw" bg={'primary'} py={9}>
             <Heading color={'white'}>CategoriesPage</Heading>
             <CategorieTable categories={categories} />
             <ModalAddCategory />
