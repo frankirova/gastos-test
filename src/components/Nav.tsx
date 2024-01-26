@@ -11,7 +11,7 @@ import { useTotals } from '../store/totals.store';
 const Nav: React.FC = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { accounts, getAccount }: any = useAccount()
-    const { totals, getTotals }:any = useTotals()
+    const { totals, getTotals }: any = useTotals()
     const [selectedAccount, setSelectedAccount] = useState({ name: 'USD' })
 
     useEffect(() => {
@@ -27,7 +27,9 @@ const Nav: React.FC = () => {
                 color={'white'}
                 background={'primary'}
             />
-            <VStack width='70vw' justifyContent='center' height='10vh' borderBottomRadius="100%">
+            <VStack position={'fixed'} top="0"
+                left='16%' width='70vw' justifyContent='center' height='10vh' borderBottomRadius="8px" background={'primary'} zIndex="overlay"
+            >
                 <Text color={'white'}>{totals}</Text>
                 {/*<Heading color={'white'} as={Link} to={'/'}>Gastito</Heading>*/}
                 <Menu>
@@ -72,7 +74,7 @@ const Nav: React.FC = () => {
                     <XIcon />
                 </Button>
             </Box>
-        </HStack>
+        </HStack >
     );
 };
 

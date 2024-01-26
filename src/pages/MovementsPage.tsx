@@ -6,7 +6,7 @@ export const MovementsPage = () => {
 
 
     return (
-        <VStack backgroundColor={'terceary'} minHeight={'100vh'} minWidth='100vw' alignItems={'center'}>
+        <VStack py={9} backgroundColor={'terceary'} minHeight={'100vh'} minWidth='100vw' alignItems={'center'}>
             <MovementsList />
         </VStack>
     )
