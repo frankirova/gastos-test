@@ -30,10 +30,8 @@ export const MovementsList = () => {
                         <HStack key={movement._id}
                             as={Link}
                             to={`/${movement._id}`}
-                            backgroundColor={'terceary'}
-                            style={{
-                                background: "background: linear-gradient(90deg, rgba(43,43,43,1) 0%, rgba(53,54,52,1) 100%)",
-                            }}
+                            backgroundColor={'primary'}
+                            borderRadius={'.5em'}
                             padding={6}
                             width='90vw'
                             maxHeight={'4rem'}
