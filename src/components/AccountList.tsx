@@ -9,7 +9,7 @@ import { Link } from "react-router-dom"
 import { useTotals } from "../store/totals.store"
 
 export const AccountList = () => {
-    const { getAccount, accounts }: any = useAccount()
+    const { getAccount, accounts, updateAccount }: any = useAccount()
     const { totals, getTotals }: any = useTotals()
     const saldo_total = Math.round(getSaldoDashboard(accounts))
     const saldo_total_format = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(saldo_total);
@@ -23,7 +23,7 @@ export const AccountList = () => {
         getTotals()
     }, [])
 
-    setInterval(() => updateTotalAccount(accounts), 86400000);
+    setInterval(() => updateTotalAccount(updateAccount, accounts), 86400000);
     const ver_saldo = () => {
         setSaldo(saldo_total_format)
     }
