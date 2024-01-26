@@ -24,7 +24,7 @@ export const MovementsList = () => {
                 <Button onClick={() => { setSelectGroup('income') }}>Ingresos</Button>
                 <Button onClick={() => { setSelectGroup('expense') }}>Gastos</Button>
             </HStack>
-            <VStack spacing={6}>
+            <VStack spacing={2}>
                 {
                     filteredMovements.map((movement: Movement) => (
                         <HStack key={movement._id}
@@ -35,8 +35,8 @@ export const MovementsList = () => {
                                 background: "background: linear-gradient(90deg, rgba(43,43,43,1) 0%, rgba(53,54,52,1) 100%)",
                             }}
                             padding={6}
-                            minWidth='90vw'
-                            maxHeight={'6rem'}
+                            width='90vw'
+                            maxHeight={'4rem'}
                             color={'white'}
                             justifyContent={'space-between'}
                             alignItems={'center'}
