@@ -1,24 +1,53 @@
 // HamburguesaMenu.tsx
-import React from 'react';
-import { Button, useDisclosure, Box, VStack, Text, Heading, HStack, Flex } from '@chakra-ui/react';
+import React, { useEffect, useState } from 'react';
+import { Button, useDisclosure, Box, VStack, Text, HStack, Menu, MenuButton, MenuList, Tag, MenuItem } from '@chakra-ui/react';
 import { MenuBurgerIcon } from '../icons/MenuBurgerIcon';
 import { XIcon } from '../icons/XIcon';
 import { Link } from 'react-router-dom';
-// import { HamburgerIcon } from '@chakra-ui/icons';
+import { useAccount } from '../store/account.store';
+import { Accounts } from '../store/types/account.type';
+import { useTotals } from '../store/totals.store';
 
 const Nav: React.FC = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const { accounts, getAccount }: any = useAccount()
+    const { totals, getTotals }:any = useTotals()
+    const [selectedAccount, setSelectedAccount] = useState({ name: 'USD' })
 
+    useEffect(() => {
+        getAccount()
+    }, [])
+    useEffect(() => {
+        getTotals()
+    }, [])
     return (
         <HStack backgroundColor={'#353634'} width='100vw'>
             <Button onClick={onOpen}
                 leftIcon={<MenuBurgerIcon />}
-                bg="#4d648d"
                 color={'white'}
+                background={'primary'}
             />
-            <Flex width='70vw' justifyContent='center'>
-                <Heading color={'white'} as={Link} to={'/'}>Gastito</Heading>
-            </Flex>
+            <VStack width='70vw' justifyContent='center'>
+                <Text color={'white'}>{totals}</Text>
+                {/*<Heading color={'white'} as={Link} to={'/'}>Gastito</Heading>*/}
+                <Menu>
+                    <MenuButton>
+                        <Tag variant={"solid"}>{selectedAccount?.name}</Tag>
+                    </MenuButton>
+                    <MenuList>
+                        {accounts.map((account: Accounts) => (
+                            <MenuItem
+                                onClick={() =>
+                                    setSelectedAccount(account)
+                                }
+                            >
+                                {account.name}
+                            </MenuItem>
+                        ))}
+                    </MenuList>
+                </Menu>
+                {/*<TotalComponent/>*/}
+            </VStack>
             {/* Menú lateral */}
             <Box
                 pos="fixed"

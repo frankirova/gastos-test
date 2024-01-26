@@ -5,7 +5,6 @@ import { ButtonAdd } from "./ButtonAdd"
 import { Link } from "react-router-dom"
 import { useMovements } from "../store/movements.store"
 import { Movement } from "../store/types/movements.type"
-import { TotalComponent } from "./TotalComponent"
 
 export const MovementsList = () => {
     const [selectGroup, setSelectGroup] = useState('expense')
@@ -19,7 +18,7 @@ export const MovementsList = () => {
 
     return (
         <VStack padding={6} spacing={4}>
-            <TotalComponent />
+            {/*<TotalComponent />*/}
             <HStack justifyContent={"center"}>
                 <Button onClick={() => { setSelectGroup('income') }}>Ingresos</Button>
                 <Button onClick={() => { setSelectGroup('expense') }}>Gastos</Button>
