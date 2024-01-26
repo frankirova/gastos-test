@@ -16,9 +16,6 @@ export const MovementsList = () => {
         getMovements()
         setFilteredMovements(movements.filter((movement: any) => movement.group === selectGroup))
     }, [selectGroup])
-    console.log(movements)
-    console.log(filteredMovements)
-    console.log(selectGroup)
 
     return (
         <VStack padding={6} spacing={4}>
@@ -34,6 +31,9 @@ export const MovementsList = () => {
                             as={Link}
                             to={`/${movement._id}`}
                             backgroundColor={'terceary'}
+                            style={{
+                                background: "background: linear-gradient(90deg, rgba(43,43,43,1) 0%, rgba(53,54,52,1) 100%)",
+                            }}
                             padding={6}
                             minWidth='90vw'
                             maxHeight={'6rem'}
@@ -41,9 +41,11 @@ export const MovementsList = () => {
                             justifyContent={'space-between'}
                             alignItems={'center'}
                         >
-                            <Image minW={'2rem'} src="https://placehold.co/48x48" borderRadius={'100%'} />
-                            <Text minWidth={'4rem'}>{movement.category}</Text>
-                            <Tag minW={'2rem'}>{new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(movement.amount)}</Tag>
+                            <HStack spacing={8}>
+                                <Image minW={'2rem'} src="https://placehold.co/48x48" borderRadius={'100%'} />
+                                <Text minWidth={'4rem'}>{movement.category}</Text>
+                            </HStack>
+                            <Tag bg={'secondary'} size={'lg'} color={"white"} minW={'2rem'}>{new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(movement.amount)}</Tag>
                         </HStack>
                     ))
                 }
