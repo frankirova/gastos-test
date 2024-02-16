@@ -28,7 +28,7 @@ const Nav: React.FC = () => {
                 background={'primary'}
             />
             <VStack position={'fixed'} top="0"
-                left='16%' width='70vw' justifyContent='center' height='10vh' borderBottomRadius="8px" background={'primary'} zIndex="overlay"
+                left='16%' width='70vw' justifyContent='center' height='10vh' borderBottomRadius="8px" background={'primary'} zIndex="0"
             >
                 <Text color={'white'}>{totals}</Text>
                 {/*<Heading color={'white'} as={Link} to={'/'}>Gastito</Heading>*/}
