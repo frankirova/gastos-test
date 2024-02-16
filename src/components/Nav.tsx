@@ -7,13 +7,16 @@ import { Link } from 'react-router-dom';
 import { useAccount } from '../store/account.store';
 import { Accounts } from '../store/types/account.type';
 import { useTotals } from '../store/totals.store';
+import { useGlobal } from '../store/global.store';
 
 const Nav: React.FC = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { accounts, getAccount }: any = useAccount()
     const { totals, getTotals }: any = useTotals()
     const [selectedAccount, setSelectedAccount] = useState({ name: 'USD' })
+    const { setSelectGroup, selectedGroup }: any = useGlobal()
 
+    console.log(selectedGroup)
     useEffect(() => {
         getAccount()
     }, [])
@@ -27,8 +30,8 @@ const Nav: React.FC = () => {
                 color={'white'}
                 background={'primary'}
             />
-            <VStack position={'fixed'} top="0"
-                left='16%' width='70vw' justifyContent='center' height='10vh' borderBottomRadius="8px" background={'primary'} zIndex="0"
+            <VStack position={'absolute'} top="0"
+                left='16%' width='70vw' justifyContent='center' height='15vh' borderBottomRadius="8px" background={'primary'} zIndex="0"
             >
                 <Text color={'white'}>{totals}</Text>
                 {/*<Heading color={'white'} as={Link} to={'/'}>Gastito</Heading>*/}
@@ -49,6 +52,10 @@ const Nav: React.FC = () => {
                     </MenuList>
                 </Menu>
                 {/*<TotalComponent/>*/}
+                <HStack justifyContent={"center"}>
+                    <Button variant={'none'} color={'white'} borderBottom={'2px'} borderColor={selectedGroup === 'income' ? "blue.500" : "transparent"} onClick={() => { setSelectGroup('income') }}>Ingresos</Button>
+                    <Button variant={'none'} color={'white'} borderBottom={'2px'} borderColor={selectedGroup === 'expense' ? "blue.500" : "transparent"} onClick={() => { setSelectGroup('expense') }}>Gastos</Button>
+                </HStack>
             </VStack>
             {/* Menú lateral */}
             <Box
