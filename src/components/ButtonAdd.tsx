@@ -18,6 +18,7 @@ export const ButtonAdd = () => {
                 bottom="4rem"
                 color="white"
                 h="50px"
+                p={'15px'}
                 pos="fixed"
                 right="4rem"
                 w="50px"
