@@ -17,10 +17,10 @@ export const ButtonAdd = () => {
                 borderRadius="full"
                 bottom="4rem"
                 color="white"
-                h="60px"
+                h="50px"
                 pos="fixed"
                 right="4rem"
-                w="60px"
+                w="50px"
             >
                 <PlusIcon />
 
