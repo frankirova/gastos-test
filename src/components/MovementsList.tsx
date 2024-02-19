@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Button, HStack, Image, Tag, Text, VStack } from "@chakra-ui/react"
+import { HStack, Image, Tag, Text, VStack } from "@chakra-ui/react"
 import { ButtonAdd } from "./ButtonAdd"
 
 import { Link } from "react-router-dom"
@@ -27,7 +27,7 @@ export const MovementsList = () => {
                 <Button onClick={() => { setSelectGroup('income') }}>Ingresos</Button>
                 <Button onClick={() => { setSelectGroup('expense') }}>Gastos</Button>
             </HStack> */}
-            <VStack spacing={2}>
+            <VStack spacing={2} overflowY={'auto'} >
                 {
                     filteredMovements.map((movement: Movement) => (
                         <HStack key={movement._id}
