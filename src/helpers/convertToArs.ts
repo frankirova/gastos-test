@@ -4,7 +4,7 @@ export async function convertToARS(
 ): Promise<number | null> {
     try {
         // Obtener tasas de cambio desde el servidor
-        const response = await fetch(`http://localhost:3000/rate/${currency}`);
+        const response = await fetch(`https://gastito-test.onrender.com/rate/${currency}`);
 
         if (!response.ok) {
             console.error(
