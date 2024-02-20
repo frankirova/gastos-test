@@ -8,10 +8,7 @@ import { Movement } from "../store/types/movements.type"
 import { useGlobal } from "../store/global.store"
 
 export const MovementsList = () => {
-    // const [selectGroup, setSelectGroup] = useState('expense')
-
     const { getMovements, movements }: any = useMovements()
-    // const filtered_movements = movements.filter((movement: any) => movement.group === selectGroup)
     const [filteredMovements, setFilteredMovements] = useState([])
     const { selectedGroup }: any = useGlobal()
 
@@ -23,11 +20,6 @@ export const MovementsList = () => {
     return (
         <>
             <VStack padding={6} spacing={4}>
-                {/*<TotalComponent />*/}
-                {/* <HStack justifyContent={"center"}>
-                <Button onClick={() => { setSelectGroup('income') }}>Ingresos</Button>
-                <Button onClick={() => { setSelectGroup('expense') }}>Gastos</Button>
-            </HStack> */}
                 <VStack spacing={2} overflowY={'auto'} >
                     {
                         filteredMovements.map((movement: Movement) => (
