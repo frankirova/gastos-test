@@ -1,9 +1,8 @@
-// HamburguesaMenu.tsx
 import React, { useEffect, useState } from 'react';
 import { Button, useDisclosure, Box, VStack, Text, HStack, Menu, MenuButton, MenuList, Tag, MenuItem } from '@chakra-ui/react';
 import { MenuBurgerIcon } from '../icons/MenuBurgerIcon';
 import { XIcon } from '../icons/XIcon';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useAccount } from '../store/account.store';
 import { Accounts } from '../store/types/account.type';
 import { useTotals } from '../store/totals.store';
@@ -15,11 +14,12 @@ const Nav: React.FC = () => {
     const { totals, getTotals }: any = useTotals()
     const [selectedAccount, setSelectedAccount] = useState({ name: 'USD' })
     const { setSelectGroup, selectedGroup }: any = useGlobal()
+    const location = useLocation();
 
-    console.log(selectedGroup)
     useEffect(() => {
         getAccount()
     }, [])
+
     useEffect(() => {
         getTotals()
     }, [])
@@ -31,11 +31,9 @@ const Nav: React.FC = () => {
                 background={'primary'}
             />
             <VStack position={'sticky'} top="0"
-                // left='16%'
                 width='70vw' justifyContent='center' height='15vh' borderBottomRadius="8px" background={'primary'} zIndex="0"
             >
                 <Text color={'white'}>{totals}</Text>
-                {/*<Heading color={'white'} as={Link} to={'/'}>Gastito</Heading>*/}
                 <Menu>
                     <MenuButton>
                         <Tag variant={"solid"}>{selectedAccount?.name}</Tag>
@@ -52,13 +50,11 @@ const Nav: React.FC = () => {
                         ))}
                     </MenuList>
                 </Menu>
-                {/*<TotalComponent/>*/}
-                <HStack justifyContent={"center"}>
+                {location.pathname === '/movements' && <HStack justifyContent={"center"}>
                     <Button variant={'none'} color={'white'} borderBottom={'2px'} borderColor={selectedGroup === 'income' ? "blue.500" : "transparent"} onClick={() => { setSelectGroup('income') }}>Ingresos</Button>
                     <Button variant={'none'} color={'white'} borderBottom={'2px'} borderColor={selectedGroup === 'expense' ? "blue.500" : "transparent"} onClick={() => { setSelectGroup('expense') }}>Gastos</Button>
-                </HStack>
+                </HStack>}
             </VStack>
-            {/* Menú lateral */}
             <Box
                 pos="fixed"
                 top="0"
@@ -76,7 +72,6 @@ const Nav: React.FC = () => {
                     <Text as={Link} to={'/accounts'} onClick={onClose}>Cuentas</Text>
                     <Text as={Link} to={'/categories'} onClick={onClose}>Categorias</Text>
                     <Text as={Link} to={'/movements'} onClick={onClose}>Movimientos</Text>
-
                 </VStack>
                 <Button onClick={onClose} mt="4">
                     <XIcon />
