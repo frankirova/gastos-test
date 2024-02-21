@@ -12,6 +12,9 @@ export const AccountList = () => {
     useEffect(() => {
         getAccount()
     }, [])
+    useEffect(()=> {
+        updateTotalAccount(updateAccount, accounts)
+    }, [])
 
     setInterval(() => updateTotalAccount(updateAccount, accounts), 86400000);
 
