@@ -50,11 +50,11 @@ export const MovementsList = () => {
                                 justifyContent={'space-between'}
                                 alignItems={'center'}
                             >
-                                <HStack spacing={8}>
+                                <HStack spacing={4}>
                                     <Image minW={'2rem'} src="https://placehold.co/24x24" borderRadius={'100%'} />
                                     <Text minWidth={'4rem'}>{movement.category}</Text>
                                 </HStack>
-                                <Text color={"white"}>% { movement.porcentaje.toFixed(2)}</Text>
+                                <Text color={"gray"}>%{ movement.porcentaje.toFixed(2)}</Text>
                                 <Tag bg={'secondary'} size={'lg'} color={"white"} minW={'2rem'}>{new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(movement.total)}</Tag>
                             </HStack>
                         ))
