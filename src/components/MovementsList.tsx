@@ -55,7 +55,7 @@ export const MovementsList = () => {
                                     <Text minWidth={'4rem'}>{movement.category}</Text>
                                 </HStack>
                                 <Text color={"gray"}>%{ movement.porcentaje.toFixed(2)}</Text>
-                                <Tag bg={'secondary'} size={'lg'} color={"white"} minW={'2rem'}>{new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(movement.total)}</Tag>
+                                <Tag bg={'secondary'} paddingX={4} color={"white"} minW={'2rem'}>{new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(movement.total)}</Tag>
                             </HStack>
                         ))
                     }
