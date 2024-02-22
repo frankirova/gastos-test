@@ -54,9 +54,8 @@ export const MovementsList = () => {
                                     <Image minW={'2rem'} src="https://placehold.co/24x24" borderRadius={'100%'} />
                                     <Text minWidth={'4rem'}>{movement.category}</Text>
                                 </HStack>
-                                <Text color={"gray"}>%{ movement.porcentaje.toFixed(2)}</Text>
-                                <Tag bg={'secondary'} paddingX={4} color={"white"} 
-                                // minW={'2rem'}
+                                <Text color={"gray"}>%{movement.porcentaje.toFixed(2)}</Text>
+                                <Tag bg={'secondary'} paddingX={4} color={"white"}
                                 >{new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(movement.total)}</Tag>
                             </HStack>
                         ))

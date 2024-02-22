@@ -14,7 +14,7 @@ export const useAccount = create((set) => ({
         }));
     },
     addAccount: async (account: any) => {
-        await fetch("https://gastito-test.onrender.com/addAccount", {
+        await fetch("https://gastito-test.onrender.com/account", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

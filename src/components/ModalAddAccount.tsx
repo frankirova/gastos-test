@@ -36,11 +36,13 @@ export const ModalAddAccount = () => {
     };*/
 
     const handleActionAndCloseModal = async (account: FormValues) => {
+        console.log('hola')
         const total = await convertToARS(account.currency, account.balance);
         if (total !== null) {
             const accountWithTotal = { ...account, total };
             await addAccount(accountWithTotal);
             console.log(accountWithTotal)
+            console.log('hola')
         }
         onClose();
     };
