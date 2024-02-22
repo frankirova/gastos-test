@@ -9,14 +9,14 @@ import { useAccount } from "../store/account.store"
 
 export const MovementsList = () => {
     const { getMovements, movements }: any = useMovements()
-    // const [filteredMovements, setFilteredMovements] = useState([])
+    const [filteredMovements, setFilteredMovements] = useState([])
     const [porcentaje, setPorcentaje] = useState([])
 
     const { selectedGroup }: any = useGlobal()
 
     useEffect(() => {
         getMovements()
-        // setFilteredMovements(movements.filter((movement: any) => movement.group === selectedGroup))
+        setFilteredMovements(movements.filter((movement: any) => movement.group === selectedGroup))
     }, [selectedGroup])
 
 
@@ -24,7 +24,7 @@ export const MovementsList = () => {
     const { eeea }: any = useAccount()
     useEffect(() => {
         async function fetchCategoriesPorcentaje() {
-            const categoriasPorcentaje = await eeea(movements);
+            const categoriasPorcentaje = await eeea(filteredMovements);
             console.log(categoriasPorcentaje);
             setPorcentaje(categoriasPorcentaje)
             // Here you can update state with categoriasPorcentaje if necessary
