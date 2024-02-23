@@ -13,7 +13,7 @@ export const MovementsList = () => {
     const [filteredMovements, setFilteredMovements] = useState([])
     const [porcentaje, setPorcentaje] = useState([])
 
-    const { selectedGroup }: any = useGlobal()
+    const { selectedGroup, week }: any = useGlobal()
     function obtenerSemana(fecha: any) {
         // Obtener el día del mes de la fecha
         const fechaEnserio = new Date(fecha)
@@ -33,15 +33,16 @@ export const MovementsList = () => {
             return "Fecha inválida";
         }
     }
-    let fecha1 = new Date('2023-02-019')
-    console.log(fecha1, obtenerSemana(movements[0].date))
-    // console.log(movements[0])
+    const filtrarPorSemana = (movements:any, week:any) => {
+        return movements.filter((movement:any) => obtenerSemana(movement.date) === week)
+    }
 
     useEffect(() => {
         getMovements()
-        console.log(filteredMovements)
-        setFilteredMovements(movements.filter((movement: any) => movement.group === selectedGroup))
-    }, [selectedGroup])
+        const fileteredByGroup = movements.filter((movement: any) => movement.group === selectedGroup)
+        const filteredByDate = filtrarPorSemana(filteredByGroup, week)
+        setFilteredMovements(filteredByDate)
+    }, [selectedGroup, week])
 
     const { eeea }: any = useAccount()
     useEffect(() => {
