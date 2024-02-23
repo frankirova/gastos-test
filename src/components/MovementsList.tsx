@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 import { useMovements } from "../store/movements.store"
 import { useGlobal } from "../store/global.store"
 import { useAccount } from "../store/account.store"
+import { MovementsFilterByDate } from "./MovementsFilterByDate"
 
 export const MovementsList = () => {
     const { getMovements, movements }: any = useMovements()
@@ -34,6 +35,8 @@ export const MovementsList = () => {
 
     return (
         <>
+
+            <MovementsFilterByDate />
             <VStack padding={6} spacing={4}>
                 <VStack spacing={2} overflowY={'auto'} >
                     {
