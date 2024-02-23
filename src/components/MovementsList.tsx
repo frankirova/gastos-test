@@ -40,7 +40,7 @@ export const MovementsList = () => {
     useEffect(() => {
         getMovements()
         console.log(filteredMovements)
-        setFilteredMovements(filteredMovements.filter((movement: any) => movement.group === selectedGroup))
+        setFilteredMovements(movements.filter((movement: any) => movement.group === selectedGroup))
     }, [selectedGroup])
 
     const { eeea }: any = useAccount()
