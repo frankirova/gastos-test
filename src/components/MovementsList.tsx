@@ -39,7 +39,7 @@ export const MovementsList = () => {
 
     useEffect(() => {
         getMovements()
-        const fileteredByGroup = movements.filter((movement: any) => movement.group === selectedGroup)
+        const filteredByGroup = movements.filter((movement: any) => movement.group === selectedGroup)
         const filteredByDate = filtrarPorSemana(filteredByGroup, week)
         setFilteredMovements(filteredByDate)
     }, [selectedGroup, week])
