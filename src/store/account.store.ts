@@ -79,20 +79,9 @@ export const useAccount = create((set) => ({
             }
         });
 
-        console.log("Categoría\tTotal\tPorcentaje");
         for (const categoria in totalesPorCategoria) {
             const totalCategoria = totalesPorCategoria[categoria];
             const porcentaje = (totalCategoria / total) * 100;
-            // console.log(
-            //     `${categoria}\t${totalCategoria.toFixed(
-            //         2
-            //     )}\t${porcentaje.toFixed(2)}%`
-            // );
-            // console.log({
-            //     category: categoria,
-            //     total: totalCategoria,
-            //     porcentaje: porcentaje,
-            // });
             const catlist = {
                 category: categoria,
                 total: totalCategoria,

@@ -14,28 +14,46 @@ export const MovementsList = () => {
     const [porcentaje, setPorcentaje] = useState([])
 
     const { selectedGroup }: any = useGlobal()
+    function obtenerSemana(fecha: any) {
+        // Obtener el día del mes de la fecha
+        const fechaEnserio = new Date(fecha)
+        var dia = fechaEnserio.getDate();
+
+        // Determinar la semana según el día del mes
+        if (dia >= 1 && dia <= 8) {
+            return 1;
+        } else if (dia > 8 && dia <= 15) {
+            return 2;
+        } else if (dia > 15 && dia <= 22) {
+            return 3;
+        } else if (dia > 22 && dia <= 31) {
+            return 4;
+        } else {
+            // Manejar casos donde la fecha no se ajusta a ninguno de los rangos
+            return "Fecha inválida";
+        }
+    }
+    let fecha1 = new Date('2023-02-019')
+    console.log(fecha1, obtenerSemana(movements[0].date))
+    // console.log(movements[0])
 
     useEffect(() => {
         getMovements()
-        setFilteredMovements(movements.filter((movement: any) => movement.group === selectedGroup))
+        console.log(filteredMovements)
+        setFilteredMovements(filteredMovements.filter((movement: any) => movement.group === selectedGroup))
     }, [selectedGroup])
-
-
 
     const { eeea }: any = useAccount()
     useEffect(() => {
         async function fetchCategoriesPorcentaje() {
             const categoriasPorcentaje = await eeea(filteredMovements);
-            console.log(categoriasPorcentaje);
             setPorcentaje(categoriasPorcentaje)
-            // Here you can update state with categoriasPorcentaje if necessary
         }
         fetchCategoriesPorcentaje();
     }, [eeea, movements]);
 
     return (
         <>
-
             <MovementsFilterByDate />
             <VStack padding={6} spacing={4}>
                 <VStack spacing={2} overflowY={'auto'} >
@@ -63,14 +81,6 @@ export const MovementsList = () => {
                             </HStack>
                         ))
                     }
-                    {/* {porcentaje.map((cat: Category) => (
-                        <VStack color={"white"}>
-                            <Text>Nombre: {cat.category}</Text>
-                            <Text>Total: {cat.total}</Text>
-                            <Text>%: {cat.porcentaje}</Text>
-                        </VStack>
-                    ))} */}
-
                     <ButtonAdd />
                 </VStack >
             </VStack>

@@ -40,7 +40,7 @@ const Nav: React.FC = () => {
                     </MenuButton>
                     <MenuList>
                         {accounts.map((account: Accounts) => (
-                            <MenuItem
+                            <MenuItem key={account._id}
                                 onClick={() =>
                                     setSelectedAccount(account)
                                 }
